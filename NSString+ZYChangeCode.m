@@ -12,25 +12,25 @@ static NSString *TRADITION = @"萬與醜專業叢東絲丟兩嚴喪個爿豐臨�
 
 @implementation NSString (ZYChangeCode)
 -(NSString*)toTraditionString{
-//    NSString *outputStirng = @"";
-//    for (int i = 0; i < [self length]; i++)
-//    {
-//        unichar c = [self characterAtIndex:i];
-//        NSString * curStr = [[NSString alloc]initWithFormat:@"%C", c];
-//        NSRange r = [SIMPLE rangeOfString: curStr ];
-//        if(r.location < [SIMPLE length] )
-//        {
-//            unichar tc = [TRADITION characterAtIndex:r.location];
-//            outputStirng = [outputStirng stringByAppendingFormat:@"%C", tc];
-//        }
-//        else
-//        {
-//            outputStirng = [outputStirng stringByAppendingString:curStr];
-//        }
-//        
-//    }
-//    return outputStirng;
-    return self;//因为server返回的是繁体，所以繁体不用处理了。
+    NSString *outputStirng = @"";
+    for (int i = 0; i < [self length]; i++)
+    {
+        unichar c = [self characterAtIndex:i];
+        NSString * curStr = [[NSString alloc]initWithFormat:@"%C", c];
+        NSRange r = [SIMPLE rangeOfString: curStr ];
+        if(r.location < [SIMPLE length] )
+        {
+            unichar tc = [TRADITION characterAtIndex:r.location];
+            outputStirng = [outputStirng stringByAppendingFormat:@"%C", tc];
+        }
+        else
+        {
+            outputStirng = [outputStirng stringByAppendingString:curStr];
+        }
+        
+    }
+    return outputStirng;
+
 }
 -(NSString*)toSimpleString{
     NSString *outputStirng = @"";
